@@ -12,8 +12,10 @@ namespace modul3_1302220093
 {
     public partial class Form1 : Form
     {
-        public int tampung1, tampung2, hasil;
+        public int tampung1, tampung2, tampung3, hasil;
+        public string tampungS1, tampungS2, tampungS3;
         public bool cek = false;
+        public bool cektambah = false;
 
         public Form1()
         {
@@ -150,15 +152,27 @@ namespace modul3_1302220093
 
         private void button12_Click(object sender, EventArgs e)
         {
-            tampung1 = Convert.ToInt32(label1.Text);
-            label1.Text = label1.Text + " + ";
+            
             cek = false;
+            if (cektambah == false)
+            {
+                tampung1 = Convert.ToInt32(label1.Text);
+                label1.Text = label1.Text + " + ";
+                tampungS1 = label1.Text;
+                cektambah = true;
+            } else
+            {
+                tampung2 = Convert.ToInt32(label1.Text);
+                label1.Text = label1.Text + " + ";
+                tampungS2 = tampungS1 + label1.Text;
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            tampung2 = Convert.ToInt32(label1.Text);
-            hasil = tampung1 + tampung2;
+            tampungS3 = label1.Text;
+            tampung3 = Convert.ToInt32(label1.Text);
+            hasil = tampung1 + tampung2 + tampung3;
             label1.Text = " = " + Convert.ToString(hasil);
         }
     }
